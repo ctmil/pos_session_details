@@ -28,9 +28,36 @@
 			                        </div>
 		                     </div>
 
+	                        <h4 t-if="o.order_ids">Detalles de Transacciones</h4>
+
+	                        <table class="table table-condensed" t-if="o.order_ids">
+	                            <thead>
+	                                <tr>
+	                                    <th>Fecha</th>
+	                                    <th>Nro.Factura</th>
+	                                    <th>Referencia</th>
+	                                    <th>Cliente</th>
+	                                    <th>Remito</th>
+	                                    <th class="text-right">Monto</th>
+	                                </tr>
+	                            </thead>
+	                            <tbody>
+	                                <tr t-foreach="o.order_ids" t-as="line">
+	                                    <td><span t-field="line.date_order"/></td>
+	                                    <td><span t-field="line.nro_factura"/></td>
+	                                    <td><span t-field="line.name"/></td>
+	                                    <td><span t-field="line.partner_id.name"/></td>
+	                                    <td><span t-field="line.picking_id.name"/></td>
+	                                    <td class="text-right">
+	                                        <span t-field="line.amount_total" />
+	                                    </td>
+	                                </tr>
+	                            </tbody>
+
+	                        </table>
 
 	                    <t t-foreach="o.statement_ids" t-as="statement">
-	                        <h4 t-if="statement.line_ids">Detalles de Transacciones: <span t-esc="statement.name"/></h4>
+	                        <h4 t-if="statement.line_ids">Detalles de Pagos: <span t-esc="statement.name"/></h4>
 
 	                        <table class="table table-condensed" t-if="statement.line_ids">
 	                            <thead>
@@ -39,7 +66,8 @@
 	                                    <th>Descripción</th>
 	                                    <th>Referencia</th>
 	                                    <th>Partner</th>
-	                                    <th>Cuenta</th>
+	                                    <th>Cupón</th>
+	                                    <th>Tarjeta</th>
 	                                    <th class="text-right">Monto</th>
 	                                </tr>
 	                            </thead>
@@ -49,7 +77,8 @@
 	                                    <td><span t-field="line.name"/></td>
 	                                    <td><span t-field="line.ref"/></td>
 	                                    <td><span t-field="line.partner_id"/></td>
-	                                    <td><span t-field="line.account_id"/></td>
+	                                    <td><span t-field="line.nro_cupon"/></td>
+	                                    <td><span t-field="line.nro_tarjeta"/></td>
 	                                    <td class="text-right">
 	                                        <span t-field="line.amount" />
 	                                    </td>
