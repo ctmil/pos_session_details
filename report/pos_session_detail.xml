@@ -76,7 +76,7 @@
         <report
         id="report_pos_session_detail"
         model="pos.session"
-        string="POS Session detail"
+        string="POS Detalles de Ventas"
         report_type="qweb-pdf" 
         name="pos_session_details.qweb_pos_session_details"/>
 

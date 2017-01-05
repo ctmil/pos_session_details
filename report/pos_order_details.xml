@@ -7,23 +7,23 @@
         		<t t-foreach="docs" t-as="o">
         		<t t-call="report.internal_layout">
 	        			<div class="page">
-	        				<h2>POS Order Details: <span t-field="o.name"/></h2>
+	        				<h2>POS Detalles de la Orden: <span t-field="o.name"/></h2>
 
 		                    <div class="row mt32 mb32">
 			                        <div class="col-xs-3">
-			                            <strong>Responsible</strong>:<br/>
+			                            <strong>Responsable</strong>:<br/>
 			                            <span t-field="o.user_id"/>
 			                        </div>
 			                        <div class="col-xs-3">
-			                            <strong>Session</strong>:<br/>
+			                            <strong>Sesion</strong>:<br/>
 			                            <span t-field="o.session_id"/>
 			                        </div>
 			                        <div class="col-xs-3">
-			                            <strong>Location</strong>:<br/>
+			                            <strong>Depósito</strong>:<br/>
 			                            <span t-field="o.location_id"/>
 			                        </div>
 			                        <div class="col-xs-3">
-			                            <strong>State</strong>:<br/>
+			                            <strong>Estado</strong>:<br/>
 			                            <span t-field="o.state"/>
 			                        </div>
 		                     </div>
@@ -41,7 +41,7 @@
         <report
         id="report_pos_order_details"
         model="pos.order"
-        string="POS Order detail"
+        string="POS Detalles de la Orden"
         report_type="qweb-pdf" 
         name="pos_session_details.qweb_pos_order_details"/>
 
